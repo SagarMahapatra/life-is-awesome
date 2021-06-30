@@ -2,7 +2,7 @@ module.exports = {
     title: "Share your light",
     description: "",
     base: '/',
-    dest: 'docs/.vuepress/dist',
+    dest: 'pages',
     theme: require.resolve("../../"),
     themeConfig: {
         summary: true,
