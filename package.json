@@ -1,7 +1,7 @@
 {
-  "name": "ShareYourLight",
+  "name": "vuepress-theme-medium",
   "version": "0.1.0",
-  "description": "Thoughts",
+  "description": "Medium-Like blog theme for VuePress",
   "main": "index.js",
   "files": [
     "index.js",
@@ -14,8 +14,8 @@
     "assets"
   ],
   "keywords": [
-    "lifestyle",
-    "food",
+    "vuepress",
+    "vuepress-theme",
     "vuepress-blog",
     "vuepress",
     "vue",
@@ -25,23 +25,21 @@
   "scripts": {
     "test": "npm run lint && jest",
     "lint": "disable",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js build docs",
-    "dev": "node --max_old_space_size=8192 ./node_modules/vuepress/cli.js dev docs",
-    "build": "node --max_old_space_size=8192 ./node_modules/vuepress/cli.js build docs"
+    "docs:dev": "vuepress dev docs --temp docs/.temp",
+    "docs:build": "vuepress build docs --temp docs/.temp",
+    "prepublishOnly": "npm run docs:build && conventional-changelog -p angular -r 2 -i CHANGELOG.md -s"
   },
   "repository": {
-    "url": "sagarmahapatra1/pallavibl",
+    "url": "z3by/vuepress-theme-medium",
     "type": "git"
   },
   "author": {
-    "email": "pallavibl@gmail.com",
-    "name": "Pallavi BL",
-    "url": "https://pallavibl.com"
+    "email": "zoaby.am@gmail.com",
+    "name": "Ahmad Mostafa",
+    "url": "https://ahmadmostafa.com"
   },
   "license": "MIT",
   "dependencies": {
-    "@mdi/font": "^5.1.45",
     "@vuepress/plugin-blog": "^1.2.5",
     "@vuepress/plugin-google-analytics": "^1.1.0",
     "@vuepress/plugin-medium-zoom": "1.0.0",
@@ -51,11 +49,6 @@
     "@vuepress/theme-blog": "^1.2.5",
     "bootstrap": "^4.3.1",
     "element-ui": "^2.13.0",
-    "esm": "^3.2.25",
-    "jquery": "^3.5.0",
-    "material-design-icons": "^3.0.1",
-    "material-design-icons-iconfont": "^5.0.1",
-    "popper.js": "^1.16.1",
     "remove-markdown": "^0.3.0",
     "vue-feather-icons": "^4.21.0",
     "vue-themify-icons": "^1.0.0",
@@ -65,14 +58,12 @@
     "vuepress-plugin-seo": "^0.1.2",
     "vuepress-plugin-sitemap": "^2.1.2",
     "vuepress-plugin-smooth-scroll": "^0.0.4",
-    "vuepress-theme-vuetify": "^1.0.0",
-    "vuetify": "^2.2.22"
+    "vuepress-theme-vuetify": "^1.0.0"
   },
   "devDependencies": {
     "conventional-changelog-cli": "^2.0.1",
     "eslint-config-sherry": "0.0.1",
-    "vuepress": "^1.0.0",
-    "webpack-cli": "^4.7.2"
+    "vuepress": "^1.0.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

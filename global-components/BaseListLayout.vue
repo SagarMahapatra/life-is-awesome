@@ -1,97 +1,61 @@
 <template>
-    <v-card flat class="fill-height">
-        <v-row class="my-5 justify-content-between" v-if="this.$route.meta.pid !== 'tag'">
-            <v-col class="col-12 col-lg-7">
-                <recent-food-posts></recent-food-posts>
-            </v-col>
-            <v-col class="col-12 col-lg-4">
-                <popular-posts :popularPosts="popularPosts"></popular-posts>
-            </v-col>
-            <v-col class="col-12 col-lg-7">
-                <!-- 
-                <blog-posts :blogPosts="recentBlogPosts"></blog-posts> -->
-                <recent-blog-posts></recent-blog-posts>
-            </v-col>
-        </v-row>
-        <!-- <v-row class="my-5 justify-content-between" v-if="isBlogTag">
-    <v-col class="col-12 col-lg-12">
-        <all-blog-posts>
-        </all-blog-posts>
-    </v-col>
-</v-row>
-<v-row class="my-5 justify-content-between" v-if="isFoodTag">
-    <v-col class="col-12 col-lg-12">
-        <all-food-posts>
-        </all-food-posts>
-    </v-col>
-</v-row> -->
-</v-card>
+  <div
+    id="base-list-layout"
+    class="fill-height"
+  >
+    <div class="row my-5 justify-content-between">
+      <div class="col-md-12 col-lg-7">
+        <post-item
+          v-for="page in pages"
+          :key="page.key"
+          :page="page"
+        ></post-item>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <popular-posts :popularPosts="popularPosts"></popular-posts>
+      </div>
+    </div>
+  </div>
 </template>
+
 <script>
 /* global THEME_BLOG_PAGINATION_COMPONENT */
 
 import Vue from 'vue'
 import PopularPosts from '../components/PopularPosts'
-import RecentFoodPosts from '../docs/.vuepress/components/RecentFoodPosts'
-import AllFoodPosts from '../docs/.vuepress/components/AllFoodPosts'
-import RecentBlogPosts from '../docs/.vuepress/components/RecentBlogPosts'
-import AllBlogPosts from '../docs/.vuepress/components/AllBlogPosts'
 import PostItem from '../components/PostItem'
 
 export default {
-    components: { PopularPosts, RecentFoodPosts, RecentBlogPosts, PostItem, AllFoodPosts, AllBlogPosts },
+  components: { PopularPosts, PostItem },
 
-    computed: {
+  computed: {
 
-        pages() {
-            if (this.$route.meta.pid == 'tag') {
-                const pages = this.$tag.list.filter(tag => {
-                    return tag.path === this.$route.path
-                })[0]
-                return pages
-            }
+    pages () {
+      if (this.$route.meta.pid == 'tag') {
+        const pages = this.$tag.list.filter(tag => {
+          return tag.path === this.$route.path
+        })[0].pages
+        return pages
+      }
 
-            return this.$site.pages.filter(page => {
-                return !page.path.startsWith('/tag/') &&
-                    !page.path.startsWith('/page/') &&
-                    page.path !== '/'
-            })
-            // return this.$site.pages.filter(page => page.frontmatter.blog).slice(0, 9)
+      return this.$site.pages.filter(page => {
+        return !page.path.startsWith('/tag/') &&
+          !page.path.startsWith('/page/') &&
+          page.path !== '/'
+      })
 
-        },
-        recentBlogPosts() {
-            return this.$site.pages.filter(page => page.frontmatter.blog).slice(0, 5)
-        },
-        blogPosts() {
-            return this.$site.pages.filter(page => page.frontmatter.blog).slice(0, 20)
-        },
-
-        popularPosts() {
-            return this.$site.pages.filter(page => page.frontmatter.popular).slice(0, 5)
-        },
-        recentFoodPosts() {
-            return this.$site.pages.filter(page => page.frontmatter.food).slice(0, 3)
-        },
-        foodPosts() {
-            return this.$site.pages.filter(page => page.frontmatter.food).slice(0, 9)
-        },
-        popularFoodPosts() {
-            return this.$site.pages.filter(page => page.frontmatter.popular).filter(page => page.frontmatter.food).slice(0, 9)
-        },
-
-        isFoodTag() {
-            return this.$route.path === '/tag/food/';
-        },
-        isDefaultTag() {
-            return !this.isFoodTag && this.$route.meta.pid === 'tag';
-        }
     },
 
-    methods: {
-        resovlePostDate(date) {
-            return new Date(date.replace(/\-/g, "/").trim()).toDateString()
-        }
-    },
+    popularPosts () {
+      return this.$site.pages.filter(page => page.frontmatter.popular).slice(0, 9)
+    }
+  },
+
+  methods: {
+    resovlePostDate (date) {
+      return new Date(date.replace(/\-/g, "/").trim()).toDateString()
+    }
+  },
 
 }
 </script>
