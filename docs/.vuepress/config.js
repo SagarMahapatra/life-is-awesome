@@ -1,6 +1,6 @@
 module.exports = {
-  title: "VuePress Blog Example",
-  description: "This is a blog example built by VuePress",
+  title: "Sanatana",
+  description: "This is a description",
   theme: require.resolve("../../"),
   dest: "pages",
   themeConfig: {
