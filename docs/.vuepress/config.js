@@ -3,7 +3,7 @@ module.exports = {
     title: "Sanatana",
     description: "This is a description",
     theme: require.resolve("../../"),
-    dest: "dist",
+    dest: "docs/.vuepress/dist",
     themeConfig: {
         summary: true,
         nav: [{
