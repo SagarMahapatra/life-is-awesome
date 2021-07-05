@@ -1,41 +1,43 @@
 module.exports = {
 
-        title: "Sanatana",
-        description: "This is a description",
-        theme: require.resolve("../../"),
-        dest: "dist",
-        themeConfig: {
-            summary: true,
-            nav: [{
-                    text: "Home",
-                    link: "/",
-                    icon: "el-icon-house"
+    title: "Sanatana",
+    description: "This is a description",
+    theme: require.resolve("../../"),
+    dest: "dist",
+    themeConfig: {
+        summary: true,
+        nav: [{
+                text: "Home",
+                link: "/",
+                icon: "el-icon-house"
+            },
+            {
+                text: "Projects",
+                link: "/projects/",
+            }
+        ],
+        sitemap: true, // enables sitemap plugin
+        hostname: "https://ahmadmostafa.com/", // required for sitemap
+        disqus: "disquswebsiteshortname", // if you want to incorporate Disqus for comments replace this value else just get rid of it
+        googleAnalytics: "", // Google Analytics tracking ID
+        footer: {
+            contact: [{
+                    type: "github",
+                    link: "https://github.com/z3by"
                 },
                 {
-                    text: "Projects",
-                    link: "/projects/",
+                    type: "instagram",
+                    link: "#"
+                },
+                {
+                    type: "linkedin",
+                    link: "#"
+                },
+                {
+                    type: "twitter",
+                    link: "#"
                 }
-            ],
-            sitemap: true, // enables sitemap plugin
-            hostname: "https://ahmadmostafa.com/", // required for sitemap
-            disqus: "disquswebsiteshortname", // if you want to incorporate Disqus for comments replace this value else just get rid of it
-            googleAnalytics: "", // Google Analytics tracking ID
-            footer: {
-                contact: [{
-                        type: "github",
-                        link: "https://github.com/z3by"
-                    },
-                    {
-                        type: "instagram",
-                        link: "#"
-                    },
-                    {
-                        type: "linkedin",
-                        link: "#"
-                    },
-                    {
-                        type: "twitter",
-                        link: "#"
-                    }
-                }
-            };
+            ]
+        }
+    }
+}
