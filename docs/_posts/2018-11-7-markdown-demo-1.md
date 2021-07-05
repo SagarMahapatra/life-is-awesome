@@ -6,11 +6,14 @@ tags:
   - blog
 title: Markdown Demo 1
 description: This is s brief description
-image: https://picsum.photos/id/30/400/300
+image: /static/uploads/revati_thubnail.jpg
 featured: true
 ---
 
 # Markdown Demo 1
+
+
+![](/static/uploads/revati.png)
 
 # h1 Heading 8-)
 ## h2 Heading
