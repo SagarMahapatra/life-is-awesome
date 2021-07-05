@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   repo: sagarmahapatra/life-is-awesome
   branch: master # Branch to update (optional; defaults to master)
-media_folder: "./../.vuepress/public/uploads"
+media_folder: "/docs/.vuepress/public/uploads"
 public_folder: "/../uploads"
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
