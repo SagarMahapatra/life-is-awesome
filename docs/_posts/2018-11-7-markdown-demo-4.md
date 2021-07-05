@@ -5,7 +5,7 @@ tags:
   - story
 title: Dusky Lady
 description: This is s brief description
-image: https://drive.google.com/uc?export=view&id=1RMEdP-oqSKhxbnlh1l09PoEUN6-0zkp_
+image: https://drive.google.com/uc?export=view&id=1k9ZOIYHwjJuBpnZjh7GZ9IS4_SDvwMag
 featured: true
 popular: true
 ---
