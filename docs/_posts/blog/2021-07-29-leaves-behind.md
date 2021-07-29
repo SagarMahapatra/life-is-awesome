@@ -1,13 +1,11 @@
 ---
 layout: blog
-title: Leaves Behind
-description: exhibition
+title: The Dusky Lady
+description: Story
 date: '2021-07-29T20:52:43+05:30'
-image: /../uploads/leaves-behind.png
+image: /../uploads/revati_thubnail.jpg
 tags:
-  - Natural colours
+  - Story
 featured: true
 ---
-![null](/../uploads/leaves-behind.png)
-
-gjghkjh
+![null](/../uploads/revati.png)
